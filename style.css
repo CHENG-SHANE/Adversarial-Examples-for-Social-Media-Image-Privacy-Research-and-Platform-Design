@@ -1,0 +1,400 @@
+/* 全局樣式 */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* 背景樣式 */
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #3b569f, #60298a);
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+  position: relative;
+  overflow: auto;
+}
+
+/* 幾何圖形背景裝飾 */
+.background-shapes {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
+}
+.shape {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.07);
+  border-radius: 50%;
+  animation: float 10s ease-in-out infinite;
+  opacity: 0.7;
+}
+.shape1 { width: 250px; height: 250px; top: 10%; left: 15%; animation-delay: 0s; }
+.shape2 { width: 180px; height: 180px; top: 70%; left: 70%; animation-delay: 2s; }
+.shape3 { width: 300px; height: 300px; top: 30%; left: 85%; animation-delay: 4s; }
+.shape4 { width: 120px; height: 120px; top: 50%; left: 25%; animation-delay: 6s; }
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-20px); }
+}
+
+/* 上方的bar */
+.navbar {
+  width: 100%;
+  background: linear-gradient(135deg, #3b569f, #60298a);
+  padding: 15px 30px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  border-radius: 0 0 15px 15px;
+  z-index: 1000;
+}
+.navbar .logo {
+  font-weight: bold;
+  font-size: 24px;
+  color: #e0e7ff;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+}
+.navbar .nav-links {
+  list-style: none;
+  display: flex;
+}
+.navbar .nav-links li {
+  margin-left: 20px;
+}
+.navbar .nav-links li a {
+  color: #e0e7ff;
+  text-decoration: none;
+  padding: 8px 15px;
+  border-radius: 8px;
+  transition: background-color 0.3s;
+}
+.navbar .nav-links li a:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  color: #cbd5e1;
+}
+
+/* 主容器 */
+.container {
+  background: linear-gradient(145deg, #ffffff, #f0f1f5);
+  border-radius: 15px;
+  padding: 40px;
+  max-width: 700px;
+  width: 100%;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
+  color: #333;
+  margin-top: 100px;
+  position: relative;
+  z-index: 1;
+}
+
+/* 標題 */
+.header h1 {
+  font-size: 32px;
+  color: #1e3a8a;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.2);
+}
+.header p {
+  font-size: 16px;
+  color: #4a4a4a;
+  margin: 10px 0 20px;
+}
+
+/* 上傳區 */
+.upload-section {
+  background-color: #f3f4f6;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #d1d5db;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+.preview-container {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 15px;
+  overflow-x: auto;
+  padding: 10px 0;
+}
+.preview {
+  width: 150px;
+  height: 150px;
+  background-color: #e0e7ff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.preview:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}
+
+/* 淡入動畫 */
+.fade-in {
+  animation: fadeIn 0.8s ease-in-out forwards;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* 點擊動畫 */
+.click-animation {
+  animation: clickEffect 0.3s ease;
+}
+@keyframes clickEffect {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(0.95); }
+  100% { transform: scale(1); }
+}
+
+/* 隱私聲明 */
+.privacy-notice {
+  font-size: 12px;
+  margin-top: 15px;
+  color: #6b7280;
+}
+
+/* 隱藏工具 */
+.hidden { display: none; }
+
+/* QR、下載區居中 */
+.qr-section,
+.download-section {
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* 按鈕樣式 */
+.upload-btn,
+.confirm-btn,
+.download-btn {
+  color: #fff;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: inline-block;
+  text-decoration: none;
+  margin: 0.5rem 0;
+}
+
+/* 按鈕漸層 */
+.upload-btn {
+  background: linear-gradient(135deg, #8e2de2, #4a00e0);
+}
+.confirm-btn {
+  background: linear-gradient(135deg, #43cea2, #185a9d);
+}
+.download-btn {
+  background: linear-gradient(135deg, #5ba345, #0bd848);
+}
+
+/* Hover狀態*/
+.upload-btn:hover,
+.confirm-btn:hover,
+.download-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Active按下狀態*/
+.upload-btn:active,
+.confirm-btn:active,
+.download-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#loading-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+.loader {
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+.loader .ring {
+  position: absolute;
+  border: 5px solid transparent;
+  border-top-color: #fff;
+  border-radius: 50%;
+}
+.loader .ring:nth-child(1) {
+  top: 0;
+  left: 0;
+  width: 80px;
+  height: 80px;
+  animation: spin1 1.2s linear infinite;
+}
+.loader .ring:nth-child(2) {
+  top: 10px;
+  left: 10px;
+  width: 60px;
+  height: 60px;
+  border-top-color: #43cea2;
+  animation: spin2 1s linear infinite;
+}
+.loader .ring:nth-child(3) {
+  top: 20px;
+  left: 20px;
+  width: 40px;
+  height: 40px;
+  border-top-color: #60298a;
+  animation: spin3 0.8s linear infinite;
+}
+
+@keyframes spin1 {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+@keyframes spin2 {
+  0%   { transform: rotate(360deg); }
+  100% { transform: rotate(0deg); }
+}
+@keyframes spin3 {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* 讓 QR Code 下載 垂直置中 */
+#qr-code-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+
+/* 原圖  QR 下載 水平 */
+.result-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.result-item img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.qr-code-block {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.qr-code-block img,
+.qr-code-block canvas {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+}
+
+.qr-item {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+/* 置信度 */
+.confidence-text {
+  font-weight: bold;
+  color: #FF7744;
+  margin-bottom: 0.8rem;
+  font-size: 1.2rem;
+}
+
+/*預覽區 */
+.preview-item {
+  position: relative;
+  display: inline-block;
+  margin: 0.5rem;
+}
+.preview-item img {
+  display: block;
+  max-width: 150px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/*刪除按鈕*/
+.delete-btn {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 24px;
+  height: 24px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.delete-btn {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 24px;
+  height: 24px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 0, 0, 0.541);
+  color: white;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.separator {
+  border: none;
+  height: 1px;
+  background-color: gray;
+  opacity: 0.75;
+  margin: 2rem 0;
+}

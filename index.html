@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Adversarial Examples Encrypt</title>
+
+  <!-- 主樣式表 -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- 外部函式庫 -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+</head>
+<body>
+
+  <!-- Loading 遮罩 -->
+  <div id="loading-mask">
+    <div class="loader">
+      <div class="ring"></div>
+      <div class="ring"></div>
+      <div class="ring"></div>
+    </div>
+  </div>
+
+  <!-- 背景 -->
+  <div class="background-shapes">
+    <div class="shape shape1"></div>
+    <div class="shape shape2"></div>
+    <div class="shape shape3"></div>
+    <div class="shape shape4"></div>
+  </div>
+
+  <!-- 上方的bar -->
+  <div class="navbar">
+    <div class="logo">AI Encryptor</div>
+    <ul class="nav-links">
+      <li><a href="home.html">Home</a></li>
+      <li><a href="#">Features</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </div>
+
+  <!-- 主要內容容器 -->
+  <div class="container">
+    <!-- 標題 -->
+    <div class="header">
+      <h1>Adversarial Examples Encrypt</h1>
+      <p>Protect your portrait photos with AI-powered encryption to prevent misuse.</p>
+    </div>
+
+    <!-- 上傳跟相機區 -->
+    <div class="upload-section">
+      <button class="upload-btn" id="choose-btn">Choose Files</button>
+      <input type="file" id="file-upload" accept="image/*" multiple style="display: none;">
+      <!-- 相機區 -->
+      <button id="camera-btn" class="upload-btn">Open Camera</button>
+      <video id="video" autoplay playsinline style="display:none; max-width:100%; margin-top:1rem;"></video>
+      <button id="capture-btn" class="upload-btn" style="display:none; margin-top:0.5rem;">Capture</button>
+      <canvas id="canvas" style="display:none;"></canvas>
+    </div>
+
+    <!-- 預覽區 -->
+    <div class="preview-container" id="preview-container"></div>
+
+    <!-- 確認按鈕 -->
+    <div id="confirm-section" style="text-align:center; margin: 1rem 0; display: none;">
+      <button id="confirm-btn" class="confirm-btn">Confirm</button>
+    </div>
+
+    <!-- QR Code & 下載連結 -->
+    <div id="qr-code-section" style="display: none; text-align: center;">
+      <h2>Scan QR Code or Download Image</h2>
+      <br>
+      <h3>If confidence drops below 80%, <br>DeepFace considers the attacked image a different person.</h3><br>
+      <div id="qr-code-container"></div>
+    </div>
+
+
+    <br><br>
+
+    <!-- 圖表結果 -->
+    <div id="chart-results-section" style="display: none;">
+      <h2>Analysis Results</h2>
+      <canvas id="metricsChart"></canvas>
+    </div>
+
+    <p class="privacy-notice">
+      Your photos are not stored or shared. They are encrypted and ready for download.
+    </p>
+  </div>
+
+  <!-- 接入js檔案 -->
+  <script src="script.js"></script>
+</body>
+</html>
